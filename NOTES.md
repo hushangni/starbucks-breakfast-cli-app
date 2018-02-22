@@ -18,6 +18,7 @@ Ingredients:
 
 
 We want an executable, that goes in bin.
+So we can run ./bin/starbucks-breakfast for the program to start interacting with the user. 
 
 The file people are running is ./bin/starbucks-breakfast
 It creates a new controller of our CLI. Then it goes to our cli.rb class to interact with command line. 

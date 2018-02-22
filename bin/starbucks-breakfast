@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/starbucks_breakfast'
+require "bundler/setup"
+require "starbucks_breakfast"
 
 StarbucksBreakfast::CLI.new.call

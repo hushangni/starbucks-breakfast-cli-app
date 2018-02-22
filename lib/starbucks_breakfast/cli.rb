@@ -10,10 +10,6 @@ class StarbucksBreakfast::CLI
 	def list_items
 		#get items
 		puts "Starbucks Breakfast Items:"
-		puts <<-DOC.gsub /^\s*/, ''
-			1. Bacon Gouda & Egg Breakfast Sandwich
-			2. Certified Gluten-Free Breakfast Sandwich
-		DOC
 		# We want some object called Breakfast, with class method called all. Returning all the breakfasts. 
 		@breakfasts = StarbucksBreakfast::Breakfast.all
 	end
