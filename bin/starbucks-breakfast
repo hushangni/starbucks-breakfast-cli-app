@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/starbucks_breakfast'
+
+StarbucksBreakfast::CLI.new.call

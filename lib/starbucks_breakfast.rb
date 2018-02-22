@@ -1,5 +1,3 @@
-require "starbucks_breakfast/version"
-
-module StarbucksBreakfast
-  # Your code goes here...
-end
+#Requires everything else needed
+require_relative  "./starbucks_breakfast/version"
+require_relative './starbucks_breakfast/cli'
