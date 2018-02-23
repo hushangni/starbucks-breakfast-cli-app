@@ -14,6 +14,14 @@ class Scraper
 
 		items = []
 
+		doc.css(".food ol li a").each do |breakfast|
+			item = Hash.new
+			item[:name] = breakfast.text.strip
+			item[:item_url] = "https://www.starbucks.com" + breakfast["href"]
+			items << item
+		end
+		binding.pry
+		items
 
 	end
 
@@ -34,3 +42,5 @@ class Scraper
 	end
 
 end
+
+list = Scraper.scrape_menu_page("https://www.starbucks.com/menu/catalog/product?food=hot-breakfast#view_control=product")
