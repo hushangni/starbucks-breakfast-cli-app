@@ -13,7 +13,7 @@ class StarbucksBreakfast::CLI
 		# We want some object called Breakfast, with class method called all. Returning all the breakfasts. 
 		@breakfasts = StarbucksBreakfast::Breakfast.all
 		@breakfasts.each.with_index(1) do |breakfast, i|
-			puts "#{i}. #{breakfast.name} - Cal: #{breakfast.calories} - Available: #{breakfast.availability}"
+			puts "#{i}. #{breakfast.name} - Cal: #{breakfast.calories} - Availability: #{breakfast.availability}"
 		end
 	end
 
@@ -26,7 +26,7 @@ class StarbucksBreakfast::CLI
 			if input.to_i > 0
 				breakfast =  @breakfasts[input.to_i - 1]
 				#TODO format this more clearly
-				puts "\n #{breakfast.name} \n - Description: #{breakfast.desc} \n - Cal: #{breakfast.calories} \n - Allergy Information: #{breakfast.allergy} \n - Available: #{breakfast.availability}"
+				puts "\n #{breakfast.name} \n - Description: #{breakfast.desc} \n - Cal: #{breakfast.calories} \n - Allergy Information: #{breakfast.allergy} \n - Availability: #{breakfast.availability}"
 			elsif input == "list"
 				list_items
 			else

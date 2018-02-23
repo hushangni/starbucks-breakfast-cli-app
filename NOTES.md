@@ -1,4 +1,4 @@
-https://www.starbucks.com/promo/food
+https://www.starbucks.com/menu/catalog/product?food=hot-breakfast#view_control=product
 starbucks-breakfast-cli-app
 
 user types starbucks-breakfast
