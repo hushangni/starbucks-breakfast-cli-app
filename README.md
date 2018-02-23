@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use this gem to peruse the Starbucks Breakfast menu from the US Starbucks website! The website is updated each time new breakfast items are available. 
+
+Run:
+
+```ruby
+./bin/starbucks-breakfast
+```
+To use the CLI!
 
 ## Development
 
