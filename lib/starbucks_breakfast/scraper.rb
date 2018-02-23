@@ -1,13 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
-require 'pry' #TODO delete later
 require_relative './breakfast.rb'
 
 class Scraper
 
 	def self.scrape_menu_page(menu_url)
 		#Open Document
-		doc = Nokogiri::HTML(open("https://www.starbucks.com/menu/catalog/product?food=hot-breakfast#view_control=product"))
+		doc = Nokogiri::HTML(open(menu_url))
 
 		#name - doc.css(".food ol li a dd strong span").first.text
 		#item_url - doc.css(".food ol li a")[0]["href"] need "https://www.starbucks.com" + /menu/food/hot-breakfast/bacon-gouda-breakfast-sandwich?foodZone=9999 
@@ -42,9 +41,7 @@ class Scraper
 		scraped_item[:calories] =  doc.css(".facts .nutrition tr td").first.children[1].text.strip
 		scraped_item[:availability] = doc.css(".fields #available strong").text.strip
 
-		binding.pry
 		scraped_item
 	end
 
 end
-

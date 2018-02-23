@@ -1,27 +1,28 @@
 class StarbucksBreakfast::Breakfast
 
-	attr_accessor :name, :url, :desc, :allergy, :availability, :calories
+	attr_accessor :name, :item_url, :desc, :allergy, :availability, :calories
 	
+	@@all = []
+
+	def initialize(item_hash)
+		# Initialize from the hash created by scraper class
+		item_hash.each{|key, value| self.send(("#{key}="), value)}
+		@@all <<self
+	end
+
+	def self.create_from_collection(items_array)
+		items_array.each do |item|
+			self.new(item)
+		end
+	end
+
+	def add_item_attributes(attributes_hash)
+		attributes_hash.each{|key, value| self.send(("#{key}="), value)}
+		self
+	end
+
 	def self.all
-		
-		item1 = self.new
-		item1.name = "Bacon Gouda & Egg Breakfast Sandwich"
-		item1.url = "https://www.starbucks.com/menu/food/hot-breakfast/bacon-gouda-breakfast-sandwich?foodZone=9999"
-		item1.desc = "Sizzling Applewood smoked bacon, melty aged Gouda and a parmesan frittata are layered on an artisan roll for extra smoky breakfast goodness."
-		item1.allergy = "Contains: Milk, Egg, Soy, Wheat"
-		item1.availability = "Currently Available"
-		item1.calories = "370"
-
-		item2 = self.new
-		item2.name = "Certified Gluten-Free Breakfast Sandwich"
-		item2.url = "https://www.starbucks.com/menu/food/hot-breakfast/gluten-free-breakfast-sandwich?foodZone=9999"
-		item2.desc = "Tasty cherrywood-smoked Canadian bacon, a peppered egg patty and reduced-fat white cheddar on a gluten free roll. It's all prepared in a certified gluten-free environment and sealed for your safety. We then warm it in its own oven-safe parchment bag to avoid any cross-contamination. At last, a truly delicious breakfast sandwich for our gluten-free friends."
-		item2.allergy = "Contains: Milk, Egg"
-		item2.availability = "Currently Available"
-		item2.calories = "280"
-
-		[item1, item2]
-
+		@@all
 	end
 
 end

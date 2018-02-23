@@ -37,4 +37,14 @@ In the breakfast item itself.
 - has ingredients
 - has availability
 
+Scraping Notes:
+go into irb
+require 'open-uri'
+require 'nokogiri'
+open('url')
+document = _ (underscore sets it to the thing that was just returned)
+content = document.read
+parsed_content = Nokogiri::HTML(content)
+parsed_content.css('')
+
 
