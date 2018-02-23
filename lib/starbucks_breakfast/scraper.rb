@@ -20,9 +20,8 @@ class Scraper
 			item[:item_url] = "https://www.starbucks.com" + breakfast["href"]
 			items << item
 		end
-		binding.pry
-		items
 
+		items
 	end
 
 	def self.scrape_item_page(item_url)
@@ -32,15 +31,20 @@ class Scraper
 		#name - doc.css(".fields h1").text
 		#desc - doc.css(".size2of3 h2").text
 		#allergy - doc.css(".facts .other_details .allergy p").text
-		#calories - doc.css(".facts .nutrition tr td").first.children[1].text.to_i TEST THIS WITH OTHER PAGES
+		#calories - doc.css(".facts .nutrition tr td").first.children[1].text.strip TEST THIS WITH OTHER PAGES
 		#availability - doc.css(".fields #available strong").text.strip
 
 		scraped_item = Hash.new
 
+		scraped_item[:name] = doc.css(".fields h1").text
+		scraped_item[:desc] = doc.css(".size2of3 h2").text
+		scraped_item[:allergy] = doc.css(".facts .other_details .allergy p").text
+		scraped_item[:calories] =  doc.css(".facts .nutrition tr td").first.children[1].text.strip
+		scraped_item[:availability] = doc.css(".fields #available strong").text.strip
 
+		binding.pry
 		scraped_item
 	end
 
 end
 
-list = Scraper.scrape_menu_page("https://www.starbucks.com/menu/catalog/product?food=hot-breakfast#view_control=product")
