@@ -12,6 +12,9 @@ class StarbucksBreakfast::CLI
 		puts "Starbucks Breakfast Items:"
 		# We want some object called Breakfast, with class method called all. Returning all the breakfasts. 
 		@breakfasts = StarbucksBreakfast::Breakfast.all
+		@breakfasts.each.with_index(1) do |breakfast, i|
+			puts "#{i}. #{breakfast.name} - Cal: #{breakfast.calories} - Available: #{breakfast.availability}"
+		end
 	end
 
 	def menu
@@ -19,12 +22,12 @@ class StarbucksBreakfast::CLI
 		while input != "exit"
 			puts "Enter the item number you want more info on or type list to see the menu list again, or type exit:"
 			input = gets.strip.downcase
-			case input
-			when "1"
-				puts "More info on breakfast item 1"
-			when "2"
-				puts "More info on breakfast item 2"
-			when "list"
+
+			if input.to_i > 0
+				breakfast =  @breakfasts[input.to_i - 1]
+				#TODO format this more clearly
+				puts "\n #{breakfast.name} \n - Description: #{breakfast.desc} \n - Cal: #{breakfast.calories} \n - Allergy Information: #{breakfast.allergy} \n - Available: #{breakfast.availability}"
+			elsif input == "list"
 				list_items
 			else
 				puts "Not sure what you want!"

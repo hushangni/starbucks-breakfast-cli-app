@@ -2,10 +2,6 @@ class StarbucksBreakfast::Breakfast
 
 	attr_accessor :name, :url, :desc, :allergy, :availability, :calories
 	def self.all
-		puts <<-DOC.gsub /^\s*/, ''
-			1. Bacon Gouda & Egg Breakfast Sandwich
-			2. Certified Gluten-Free Breakfast Sandwich
-		DOC
 
 		item1 = self.new
 		item1.name = "Bacon Gouda & Egg Breakfast Sandwich"
