@@ -47,4 +47,14 @@ content = document.read
 parsed_content = Nokogiri::HTML(content)
 parsed_content.css('')
 
+Color Scheme:
+:light_blue
+:light_black
+:cyan
+
+Emojis:
+Hello - \ (•◡•) /
+What - ¯\\_(ツ)_/¯ 
+Goodbye - (ﾉ◕ヮ◕)ﾉ\*:･ﾟ✧ ✧ﾟ･: \*ヽ(◕ヮ◕ヽ)
+
 

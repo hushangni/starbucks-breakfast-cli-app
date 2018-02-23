@@ -1,8 +1,4 @@
 # Our cli controler
-require_relative "./scraper.rb"
-require_relative "breakfast.rb"
-require "pry"
-
 class StarbucksBreakfast::CLI
 
 	BASE_PATH = "https://www.starbucks.com/menu/catalog/product?food=hot-breakfast#view_control=product"
