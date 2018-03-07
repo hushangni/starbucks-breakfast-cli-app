@@ -11,16 +11,16 @@ class Scraper
 		#name - doc.css(".food ol li a")[0].text.strip
 		#item_url - doc.css(".food ol li a")[0]["href"] need "https://www.starbucks.com" + /menu/food/hot-breakfast/bacon-gouda-breakfast-sandwich?foodZone=9999 
 
-		items = []
+		# items = []
 
-		doc.css(".food ol li a").each do |breakfast|
+		doc.css(".food ol li a").collect { |breakfast|
 			item = Hash.new
 			item[:name] = breakfast.text.strip
 			item[:item_url] = "https://www.starbucks.com" + breakfast["href"]
-			items << item
-		end
+			item
+		}
 
-		items
+		# items
 	end
 
 	def self.scrape_item_page(item_url)

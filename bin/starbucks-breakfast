@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "starbucks_breakfast"
+require_relative "../lib/starbucks_breakfast"
 
 StarbucksBreakfast::CLI.new.call

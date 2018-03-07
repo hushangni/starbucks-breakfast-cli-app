@@ -28,9 +28,9 @@ class StarbucksBreakfast::CLI
 	end
 
 	def list_items
-		#get items
+		# Get items
 		puts "Starbucks Breakfast Items:"
-		# We want some object called Breakfast, with class method called all. Returning all the breakfasts. 
+		# Return all breakfasts
 		@breakfasts = StarbucksBreakfast::Breakfast.all
 		@breakfasts.each.with_index(1) do |breakfast, i|
 			puts "#{i}.".colorize(:light_blue) + " #{breakfast.name}".colorize(:cyan) + " - Cal: #{breakfast.calories} - Availability: #{breakfast.availability}"
